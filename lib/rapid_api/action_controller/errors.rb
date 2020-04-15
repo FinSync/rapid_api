@@ -17,7 +17,7 @@ module RapidApi
       end
 
       included do
-        rescue_from StandardError,       with: :_server_error
+        # rescue_from StandardError,       with: :_server_error # allow rails to handle StandardError
         rescue_from NotAuthorizedError,  with: :_not_authorized
         rescue_from NotFoundError,       with: :_not_found
         rescue_from NotProcessableError, with: :_not_processable
@@ -63,6 +63,7 @@ module RapidApi
       end
 
       def _server_error(e)
+        require 'pry'; binding.pry
         render_error_message "Server Error: #{e.message}", :internal_server_error, e
       end
 
