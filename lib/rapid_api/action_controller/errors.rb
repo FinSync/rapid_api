@@ -17,7 +17,7 @@ module RapidApi
       end
 
       included do
-        rescue_from StandardError,       with: :_server_error
+        # rescue_from StandardError,       with: :_server_error # disable custom StandardError handler
         rescue_from NotAuthorizedError,  with: :_not_authorized
         rescue_from NotFoundError,       with: :_not_found
         rescue_from NotProcessableError, with: :_not_processable
