@@ -22,7 +22,7 @@ module RapidApi
       def update(id, params, scope=nil)
         member = _find_member_with_scope(id, scope)
         if member.present?
-          member.update_attributes params
+          member.update params
         end
         _query_result_for_member member
       end
