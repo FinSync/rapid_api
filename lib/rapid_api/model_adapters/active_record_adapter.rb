@@ -13,6 +13,11 @@ module RapidApi
         QueryResult.new data: collection
       end
 
+      def new(params, scope={})
+        new_params = params.merge scope
+        klass.new new_params
+      end
+
       def create(params, scope={})
         create_params = params.merge scope
         member = klass.create create_params
