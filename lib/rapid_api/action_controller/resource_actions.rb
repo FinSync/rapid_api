@@ -77,7 +77,7 @@ module RapidApi
         render json: _adapted_serializer.serialize(member) , status: response_code_for(:ok)
       end
 
-      private
+      protected
 
       def _adapted_model
         self.class.adapted_model
